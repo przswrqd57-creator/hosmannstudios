@@ -275,14 +275,11 @@ a:hover{ opacity:.92; }
   justify-content:center;
 }
 
-.dynasty-grid{
-  width:min(720px, 92vw);
-  display:grid;
-  grid-template-columns: 110px 1fr;
-  column-gap: clamp(20px, 6vw, 80px);
-  row-gap: clamp(12px, 3vw, 18px);
-  align-items: baseline;
-  padding: clamp(18px, 3.2vw, 28px) 0;
+.dynasty-grid .page-title{
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+  margin: 0 0 clamp(18px, 4vw, 28px);
 }
 
 .dynasty-title{
