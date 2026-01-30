@@ -254,7 +254,7 @@ a:hover{ opacity:.92; }
 .dynasty-row{
   display: grid;
   grid-template-columns: 90px 1fr;
-  column-gap: 32px;
+  column-gap: 64px;
   align-items: center;
 }
 
