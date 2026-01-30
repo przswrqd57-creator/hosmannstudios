@@ -226,6 +226,46 @@ a:hover{ opacity:.92; }
   .event{ font-size: 19px; }
 }
 
+/* DYNASTY – PAST CHAMPIONS */
+
+.dynasty{
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+.dynasty-title{
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: .18em;
+  color: #ffffff;
+  font-size: clamp(18px, 4vw, 26px);
+  margin-bottom: 28px;
+}
+
+.dynasty-list{
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.dynasty-list li{
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(18px, 3.6vw, 22px);
+  color: #ffffff;
+  padding: 6px 0;
+}
+
+.dynasty-list li span:first-child{
+  text-align: right;
+  opacity: .85;
+}
+
 /* WALL */
 .wall{ display:flex; flex-direction:column; gap: 22px; }
 .champ{
