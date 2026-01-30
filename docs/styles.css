@@ -266,6 +266,7 @@ a:hover{ opacity:.92; }
   color: rgba(247,238,220,.85);
   letter-spacing: .06em;
   font-size: clamp(18px, 3.4vw, 22px);
+  line-height: 1;
 }
 
 .dynasty-name{
