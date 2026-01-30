@@ -234,12 +234,15 @@ a:hover{ opacity:.92; }
 }
 
 .dynasty-title{
-  font-family: "IM Fell English SC", Georgia, serif;
-  font-weight: 400;
-  letter-spacing: .18em;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   color: #ffffff;
-  font-size: clamp(18px, 4vw, 26px);
-  margin-bottom: 28px;
+  font-size: clamp(26px, 6vw, 40px);
+  margin: 0 auto 34px;
+  max-width: 420px;
+  text-align: center;
 }
 
 .dynasty-list{
