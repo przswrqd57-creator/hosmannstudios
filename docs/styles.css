@@ -145,12 +145,19 @@ a:hover{ opacity:.92; }
   padding: 14px 18px;
 }
 .brand{
-  display:block;
-  font-family: "IM Fell English SC", Georgia, serif;
-  font-size: 20px;
-  letter-spacing: .02em;
-  margin-bottom: 10px;
+  font-family: "IM Fell English SC", Georgia, "Times New Roman", serif;
+  font-weight: 200;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--creamSoft);
+  font-size: 12px;
+  text-decoration: none;
 }
+
+.brand:hover{
+  opacity: .9;
+}
+
 .topnav .nav{ justify-content:flex-start; }
 .topnav .btn{ min-width: auto; padding: 10px 14px; }
 
