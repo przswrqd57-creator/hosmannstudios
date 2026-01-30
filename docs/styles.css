@@ -234,3 +234,16 @@ a:hover{ opacity:.92; }
   border-radius: 14px;
   border: 1px solid rgba(247,238,220,.12);
 }
+
+.location-image {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.location-image img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 6px;
+}
