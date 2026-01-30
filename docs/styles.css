@@ -264,8 +264,8 @@ a:hover{ opacity:.92; }
   font-style: italic;
   font-weight: 400;
   color: rgba(247,238,220,.85);
-  letter-spacing: .08em;
-  font-size: clamp(20px, 3.8vw, 26px);
+  letter-spacing: 1.05em;
+  font-size: clamp(22px, 4.2vw, 30px);
   line-height: 1;
 }
 
