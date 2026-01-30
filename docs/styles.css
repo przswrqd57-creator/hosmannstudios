@@ -253,9 +253,9 @@ a:hover{ opacity:.92; }
 
 .dynasty-row{
   display: grid;
-  grid-template-columns: clamp(64px, 12vw, 92px) 1fr;
-  column-gap: clamp(16px, 3vw, 34px);
-  align-items: baseline;
+  grid-template-columns: 90px 1fr;
+  column-gap: 32px;
+  align-items: center;
 }
 
 .dynasty-year{
