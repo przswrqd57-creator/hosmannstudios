@@ -253,3 +253,12 @@ a:hover{ opacity:.92; }
   height: auto;
   border-radius: 6px;
 }
+
+/* iPhone portrait: show more of the hero image (less crop) */
+@media (max-width: 520px) {
+  .hero-img{
+    object-fit: contain;
+    object-position: center;
+    background: var(--bg);
+  }
+}
