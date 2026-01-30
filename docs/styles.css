@@ -269,6 +269,52 @@ a:hover{ opacity:.92; }
   opacity: .85;
 }
 
+.dynasty-wrap{
+  display:flex;
+  justify-content:center;
+}
+
+.dynasty-grid{
+  width:min(720px, 92vw);
+  display:grid;
+  grid-template-columns: 110px 1fr;
+  column-gap: clamp(20px, 6vw, 80px);
+  row-gap: clamp(12px, 3vw, 18px);
+  align-items: baseline;
+  padding: clamp(18px, 3.2vw, 28px) 0;
+}
+
+.dynasty-title{
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+  margin: 0 0 clamp(18px, 4vw, 28px);
+  font-family: "IM Fell English SC", Georgia, "Times New Roman", serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: clamp(34px, 6.2vw, 58px);
+}
+
+.dynasty-year{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255,255,255,.92);
+  font-size: clamp(18px, 3.2vw, 22px);
+  letter-spacing: .06em;
+}
+
+.dynasty-name{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255,255,255,.98);
+  font-size: clamp(24px, 4.5vw, 38px);
+  line-height: 1.05;
+}
+
 /* WALL */
 .wall{ display:flex; flex-direction:column; gap: 22px; }
 .champ{
