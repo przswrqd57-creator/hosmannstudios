@@ -1,88 +1,84 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hosmann Studios</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=15">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hosmann Studios</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+  >
+
+  <link rel="stylesheet" href="styles.css?v=16">
 </head>
+
 <body class="page location-page">
+
+  <!-- TOP BAR -->
   <header class="topbar">
-    <div class="corner-widgets">
-  <div class="mini-card" id="weather-card">
-    <div class="mini-card-title">WEATHER</div>
-    <div class="mini-card-body" id="weather-text">Loading weather</div>
-    <div class="mini-card-sub" id="weather-sub"></div>
-  </div>
+    <a class="brand" href="index.html">Hosmann Studios</a>
 
-  <div class="mini-card" id="countdown-card">
-    <div class="mini-card-title">COUNTDOWN</div>
-    <div class="mini-card-body" id="countdown-text">Loading countdown</div>
-    <div class="mini-card-sub">To Fri Jul 31, 2026 · 7:30am</div>
-  </div>
-</div>
-
-<a class="brand" href="index.html">Hosmann Studios</a>
-    <div class="topnav"><nav class="nav" aria-label="Primary">
-  <a class="btn" href="location.html">Location</a>
-  <a class="btn" href="itinerary.html">Itinerary</a>
-  <a class="btn" href="golf.html">Golf</a>
-  <a class="btn" href="dynasty.html">Dynasty</a>
-  <a class="btn" href="wall.html">The Wall</a>
-</nav>
-</div>
+    <div class="topnav">
+      <nav class="nav" aria-label="Primary">
+        <a class="btn" href="location.html">Location</a>
+        <a class="btn" href="itinerary.html">Itinerary</a>
+        <a class="btn" href="golf.html">Golf</a>
+        <a class="btn" href="dynasty.html">Dynasty</a>
+        <a class="btn" href="wall.html">The Wall</a>
+      </nav>
+    </div>
   </header>
 
+  <!-- WEATHER + COUNTDOWN (ONLY ONE COPY) -->
+  <div class="corner-widgets">
+    <div class="mini-card">
+      <div class="mini-card-title">WEATHER</div>
+      <div class="mini-card-body" id="weather">Loading weather</div>
+      <div class="mini-card-sub" id="weather-sub"></div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-card-title">COUNTDOWN</div>
+      <div class="mini-card-body" id="countdown">Loading countdown</div>
+      <div class="mini-card-sub">To Fri Jul 31, 2026 · 7:30am</div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
   <main class="content">
-<div class="corner-widgets">
-  <div class="mini-card" id="weatherCard">
-    <div class="mini-card-title">Weather</div>
-    <div class="mini-card-body" id="weatherText">Loading weather</div>
-    <div class="mini-card-sub" id="weatherSub"></div>
-  </div>
-
-  <div class="mini-card" id="countdownCard">
-    <div class="mini-card-title">Countdown</div>
-    <div class="mini-card-body" id="countdownText">Loading countdown</div>
-    <div class="mini-card-sub" id="countdownSub">To Fri Jul 31, 2026 · 7:30am</div>
-  </div>
-</div>
-    
     <h1 class="page-title">Location</h1>
+
     <div class="card">
-  <h2>Firekeeper Resort</h2>
-  <p class="muted">12305 150th Rd, Mayetta, KS 66509</p>
+      <h2>Firekeeper Resort</h2>
+      <p class="muted">12305 150th Rd, Mayetta, KS 66509</p>
 
-  <div class="grid-2">
-    <div>
-      <h3>Arrival</h3>
-      <ul>
-        <li>Arrive: 7:30am (Friday)</li>
-        <li>Check-in: 3:00pm</li>
-      </ul>
+      <div class="grid-2">
+        <div>
+          <h3>Arrival</h3>
+          <ul>
+            <li>Arrive: 7:30am (Friday)</li>
+            <li>Check-in: 3:00pm</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Notes</h3>
+          <ul>
+            <li>Parking on-site</li>
+            <li>Pool and casino on property</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div>
-      <h3>Notes</h3>
-      <ul>
-        <li>Parking on-site</li>
-        <li>Pool and casino on property</li>
-      </ul>
-    </div>
-  </div>
-</div>
 
-<div class="location-image">
-  <img
-    src="location.jpeg"
-    alt="FireKeeper Golf Course"
-  />
-</div>
-    
+    <div class="location-image">
+      <img src="location.jpeg" alt="FireKeeper Golf Course">
+    </div>
   </main>
-<script src="app.js?v=16" defer></script>
+
+  <!-- JS -->
+  <script src="app.js?v=16" defer></script>
 </body>
 </html>
