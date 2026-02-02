@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="styles.css?v=13">
 
 </head>
-<body class="page">
+<body class="page location-page">
   <header class="topbar">
     <a class="brand" href="index.html">Hosmann Studios</a>
     <div class="topnav"><nav class="nav" aria-label="Primary">
@@ -24,6 +24,20 @@
   </header>
 
   <main class="content">
+<!-- Top-right widgets (Location page only) -->
+<div class="corner-widgets" aria-label="Location widgets">
+  <div class="mini-card" id="weather-card">
+    <div class="mini-card-title">Weather</div>
+    <div class="mini-card-body" id="weather-box">Loading weather</div>
+  </div>
+
+  <div class="mini-card" id="countdown-card">
+    <div class="mini-card-title">Countdown</div>
+    <div class="mini-card-body" id="countdown-box">Loading countdown</div>
+    <div class="mini-card-sub">To Fri Jul 31, 2026 • 7:30am</div>
+  </div>
+</div>
+    
     <h1 class="page-title">Location</h1>
     <div class="card">
   <h2>Firekeeper Resort</h2>
