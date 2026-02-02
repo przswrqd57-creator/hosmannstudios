@@ -1,5 +1,4 @@
 // Location page widgets: weather + countdown
-alert("app.js is running");
 (function () {
   // Only run on the location page widgets if the elements exist
   const weatherText = document.getElementById("weather-text");
