@@ -1,70 +1,95 @@
-// Location page widgets: weather + countdown
+// Hosmann Studios widgets (Location page only)
+// Runs once, updates existing DOM nodes (does not append duplicates)
+
 (function () {
-  // Only run on the location page widgets if the elements exist
-  const weatherText = document.getElementById("weather-text");
-  const weatherSub = document.getElementById("weather-sub");
-  const countdownText = document.getElementById("countdown-text");
+  // Prevent double-run (most common cause of duplicated cards on desktop)
+  if (window.__hosmannWidgetsInit) return;
+  window.__hosmannWidgetsInit = true;
 
-  const hasWeather = !!weatherText;
-  const hasCountdown = !!countdownText;
-
-  if (!hasWeather && !hasCountdown) return;
-
-  // ---- Countdown ----
-  // Firekeeper weekend start, Central time, July is typically CDT (UTC-5)
-  const target = new Date("2026-07-31T07:30:00-05:00");
-
-  function pad2(n) {
-    return String(n).padStart(2, "0");
+  function $(id) {
+    return document.getElementById(id);
   }
 
-  function renderCountdown() {
-    if (!hasCountdown) return;
+  // Only run on the Location page
+  // Requires <body class="page location-page">
+  const isLocationPage = document.body && document.body.classList.contains("location-page");
+  if (!isLocationPage) return;
 
-    const now = new Date();
-    let diffMs = target.getTime() - now.getTime();
+  const weatherText = $("weatherText");
+  const weatherSub = $("weatherSub");
+  const countdownText = $("countdownText");
+  const countdownSub = $("countdownSub");
 
-    if (diffMs <= 0) {
-      countdownText.textContent = "It’s time";
-      return;
-    }
+  // If the HTML isn’t present, don’t do anything
+  if (!weatherText || !countdownText) return;
 
-    let totalSeconds = Math.floor(diffMs / 1000);
+  // -------------------------
+  // COUNTDOWN (to Jul 31, 2026 7:30am local time)
+  // -------------------------
+  const target = new Date(2026, 6, 31, 7, 30, 0); // month is 0-based, 6 = July
+
+  function formatCountdown(ms) {
+    if (ms <= 0) return "0 mo 0 wk 0 d 0:00:00";
+
+    const totalSeconds = Math.floor(ms / 1000);
 
     const seconds = totalSeconds % 60;
-    totalSeconds = Math.floor(totalSeconds / 60);
+    const totalMinutes = Math.floor(totalSeconds / 60);
 
-    const minutes = totalSeconds % 60;
-    totalSeconds = Math.floor(totalSeconds / 60);
+    const minutes = totalMinutes % 60;
+    const totalHours = Math.floor(totalMinutes / 60);
 
-    const hours = totalSeconds % 24;
-    let totalDays = Math.floor(totalSeconds / 24);
+    const hours = totalHours % 24;
+    const totalDays = Math.floor(totalHours / 24);
 
-    // Simple, stable breakdown: months = 30-day blocks, then weeks, then days
+    // Simple month/week breakdown (approx, but stable and readable)
     const months = Math.floor(totalDays / 30);
-    totalDays = totalDays % 30;
+    const daysAfterMonths = totalDays - months * 30;
 
-    const weeks = Math.floor(totalDays / 7);
-    const days = totalDays % 7;
+    const weeks = Math.floor(daysAfterMonths / 7);
+    const days = daysAfterMonths - weeks * 7;
 
-    countdownText.textContent =
-      `${months} mo  ${weeks} wk  ${days} d  ${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
+    const hh = String(hours).padStart(2, "0");
+    const mm = String(minutes).padStart(2, "0");
+    const ss = String(seconds).padStart(2, "0");
+
+    return `${months} mo ${weeks} wk ${days} d ${hh}:${mm}:${ss}`;
   }
 
-  // ---- Weather ----
-  // Use Mayetta, KS coordinates as a solid proxy for Firekeeper area
-  // (If you want, we can later switch to exact course coords)
-  const lat = 39.339;
-  const lon = -95.721;
+  function updateCountdown() {
+    const now = new Date();
+    const diff = target.getTime() - now.getTime();
+    countdownText.textContent = formatCountdown(diff);
+  }
 
-  function weatherCodeToText(code) {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // -------------------------
+  // WEATHER (Firekeeper Golf Course area, falls back gracefully)
+  // -------------------------
+  // Firekeeper GC is near Mayetta, KS
+  const lat = 39.33;
+  const lon = -95.73;
+
+  // Open-Meteo no-key endpoint
+  const url =
+    "https://api.open-meteo.com/v1/forecast" +
+    `?latitude=${lat}&longitude=${lon}` +
+    "&current=temperature_2m,wind_speed_10m,weather_code" +
+    "&temperature_unit=fahrenheit" +
+    "&wind_speed_unit=mph" +
+    "&timezone=America%2FChicago";
+
+  const codeToText = (code) => {
+    // Minimal readable mapping
     const map = {
       0: "Clear",
       1: "Mostly clear",
       2: "Partly cloudy",
       3: "Overcast",
       45: "Fog",
-      48: "Rime fog",
+      48: "Depositing rime fog",
       51: "Light drizzle",
       53: "Drizzle",
       55: "Heavy drizzle",
@@ -75,49 +100,37 @@
       73: "Snow",
       75: "Heavy snow",
       80: "Rain showers",
-      81: "Heavy showers",
-      82: "Violent showers",
+      81: "Rain showers",
+      82: "Heavy rain showers",
       95: "Thunderstorm",
-      96: "Thunderstorm with hail",
-      99: "Thunderstorm with heavy hail",
     };
-    return map[code] || "Weather";
-  }
+    return map[code] || "Conditions";
+  };
 
   async function loadWeather() {
-    if (!hasWeather) return;
-
     try {
-      const url =
-        "https://api.open-meteo.com/v1/forecast" +
-        `?latitude=${lat}&longitude=${lon}` +
-        "&temperature_unit=fahrenheit" +
-        "&wind_speed_unit=mph" +
-        "&current=temperature_2m,weather_code,wind_speed_10m";
+      weatherText.textContent = "Loading weather";
+      weatherSub.textContent = "";
 
       const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) throw new Error("Weather fetch failed");
+      if (!res.ok) throw new Error(`Weather HTTP ${res.status}`);
 
       const data = await res.json();
-      const cur = data.current;
-
-      if (!cur) throw new Error("No current weather data");
+      const cur = data && data.current ? data.current : null;
+      if (!cur) throw new Error("Missing current weather");
 
       const temp = Math.round(cur.temperature_2m);
       const wind = Math.round(cur.wind_speed_10m);
-      const desc = weatherCodeToText(cur.weather_code);
+      const desc = codeToText(cur.weather_code);
 
-      weatherText.textContent = `${temp}°F  ·  ${desc}`;
+      weatherText.textContent = `${temp}°F · ${desc}`;
       weatherSub.textContent = `Wind ${wind} mph`;
     } catch (e) {
+      // Don’t leave “Loading…” forever
       weatherText.textContent = "Weather unavailable";
-      weatherSub.textContent = "Check connection or try again";
+      weatherSub.textContent = "Try refresh";
     }
   }
-
-  // Start
-  renderCountdown();
-  setInterval(renderCountdown, 1000);
 
   loadWeather();
   // Refresh weather every 10 minutes
