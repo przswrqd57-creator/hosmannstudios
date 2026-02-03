@@ -18,121 +18,6 @@ body{
 a{ color:inherit; text-decoration:none; }
 a:hover{ opacity:.92; }
 
-/* HOME HERO */
-.hero{
-  position: relative;
-  min-height: 100svh;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding: clamp(16px, 3.2vw, 34px);
-  padding-top: calc(clamp(16px, 3.2vw, 34px) + env(safe-area-inset-top));
-  padding-bottom: calc(clamp(16px, 3.2vw, 34px) + env(safe-area-inset-bottom));
-}
-
-.hero-bg{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  transform: translateZ(0);
-}
-
-.hero-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-}
-
-.hero-scrim{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,.25) 0%,
-    rgba(0,0,0,.18) 35%,
-    rgba(6,22,15,.80) 100%
-  );
-}
-
-.hero-top, .hero-center, .hero-bottom{ position:relative; z-index:1; }
-
-.kicker{
-  margin:0;
-  text-align:center;
-  text-transform: uppercase;
-  letter-spacing: .34em;
-  font-weight: 200;
-  color: var(--creamSoft);
-  font-size: clamp(12px, 2.3vw, 15px);
-}
-
-.hero-center{ text-align:center; padding: 10px 0; }
-
-.title{
-  margin: 10px 0 8px;
-  font-family: "IM Fell English SC", Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  line-height: .98;
-  color: var(--cream);
-  font-size: clamp(40px, 7.2vw, 84px);
-  text-shadow: 0 10px 30px rgba(0,0,0,.35);
-}
-
-.subtitle{
-  margin: 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--creamSoft);
-  font-size: clamp(18px, 3.2vw, 28px);
-}
-
-/* HERO NAV */
-.nav{
-  display:flex;
-  gap: 12px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(0,0,0,.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--cream);
-  font-weight: 300;
-  letter-spacing: .02em;
-  min-width: 110px;
-  transition: background .15s ease, border-color .15s ease, transform .1s ease;
-}
-.btn:hover{
-  background: rgba(0,0,0,.26);
-  border-color: rgba(247,238,220,.30);
-}
-.btn:active{
-  background: rgba(6,22,15,.88);
-  transform: translateY(1px);
-  border-color: rgba(247,238,220,.34);
-}
-
-@media (max-width: 480px){
-  .hero{ padding-left: 16px; padding-right: 16px; }
-  .kicker{ letter-spacing: .26em; }
-  .nav{ gap: 10px; }
-  .btn{ min-width: 46%; padding: 12px 14px; }
-}
-@media (max-height: 740px){
-  .title{ font-size: clamp(34px, 6.6vw, 68px); }
-}
-
 /* TOPBAR + CONTENT PAGES */
 .topbar{
   position: sticky;
@@ -152,13 +37,39 @@ a:hover{ opacity:.92; }
   font-size: 12px;
   text-decoration: none;
 }
+.brand:hover{ opacity: .9; }
 
-.brand:hover{
-  opacity: .9;
+/* NAV BUTTONS */
+.nav{
+  display:flex;
+  gap: 12px;
+  justify-content:flex-start;
+  flex-wrap:wrap;
 }
-
-.topnav .nav{ justify-content:flex-start; }
-.topnav .btn{ min-width: auto; padding: 10px 14px; }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--cream);
+  font-weight: 300;
+  letter-spacing: .02em;
+  transition: background .15s ease, border-color .15s ease, transform .1s ease;
+}
+.btn:hover{
+  background: rgba(0,0,0,.26);
+  border-color: rgba(247,238,220,.30);
+}
+.btn:active{
+  background: rgba(6,22,15,.88);
+  transform: translateY(1px);
+  border-color: rgba(247,238,220,.34);
+}
 
 .content{
   max-width: 980px;
@@ -189,193 +100,17 @@ a:hover{ opacity:.92; }
   .grid-2{ grid-template-columns: 1fr; }
 }
 
-/* ITINERARY */
-.itinerary{ display:flex; flex-direction:column; gap: 18px; }
-.day{
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-  border: 1px solid rgba(247,238,220,.10);
-  border-radius: 18px;
-  padding: 18px;
+/* LOCATION IMAGE */
+.location-image{
+  margin-top: 24px;
+  display:flex;
+  justify-content:center;
 }
-.day h2{
-  margin: 0 0 14px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 600;
-  color: var(--gold);
-  font-size: clamp(22px, 3vw, 30px);
-}
-.schedule{ display:flex; flex-direction:column; gap: 10px; }
-.row{
-  display:grid;
-  grid-template-columns: 170px 1fr;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(247,238,220,.08);
-}
-.time{ font-weight: 300; color: rgba(247,238,220,.80); }
-.event{
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: 20px;
-  color: rgba(247,238,220,.94);
-}
-@media (max-width: 560px){
-  .row{ grid-template-columns: 1fr; }
-  .event{ font-size: 19px; }
-}
-
-/* WALL */
-.wall{ display:flex; flex-direction:column; gap: 22px; }
-.champ{
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(247,238,220,.10);
-  border-radius: 18px;
-  padding: 16px;
-}
-.champ h2{
-  margin: 0 0 12px;
-  font-family: "IM Fell English SC", Georgia, serif;
-  font-weight: 400;
-  color: var(--gold);
-}
-.champ-img{
-  width:100%;
-  height:auto;
-  border-radius: 14px;
-  border: 1px solid rgba(247,238,220,.12);
-}
-
-.location-image {
-  margin-top: 2.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.location-image img {
+.location-image img{
   width: 100%;
   max-width: 900px;
   height: auto;
-  border-radius: 6px;
-}
-
-/* iPhone portrait: keep cover, adjust the crop window */
-@media (max-width: 520px) {
-  .hero-img{
-    object-fit: cover;
-    object-position: 70% 55%;
-  }
-}
-
-/* DYNASTY – MULTI-WIN CHAMPIONS */
-
-.dynasty .page-title{
-  text-align: center;
-  margin: 14px 0 clamp(18px, 4vw, 28px);
-}
-
-/* centered “dark glass” panel */
-.dynasty-table{
-  width: min(900px, 100%);
-  margin: 0 auto;
-  display: grid;
-  gap: clamp(14px, 2.2vw, 18px);
-  padding: clamp(18px, 3vw, 28px);
-  border-radius: 18px;
-  background: rgba(0,0,0,.10);
+  border-radius: 12px;
   border: 1px solid rgba(247,238,220,.12);
-  box-shadow: 0 20px 60px rgba(0,0,0,.25);
-}
-
-/* two-column rows: name left, years right */
-.dynasty-row{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: clamp(32px, 6vw, 70px);
-  align-items: center;
-}
-
-/* left column */
-.dynasty-name{
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(255,255,255,.96);
-  font-size: clamp(22px, 4.2vw, 30px);
-  line-height: 1.05;
-}
-
-/* right column (years), same size as name */
-.dynasty-years{
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(247,238,220,.88);
-  font-size: clamp(22px, 4.2vw, 30px);
-  line-height: 1.05;
-  text-align: right;
-  letter-spacing: .08em;
-  white-space: nowrap;
-}
-
-/* footnote centered under panel */
-.dynasty-footnote{
-  margin: 16px 0 0;
-  text-align: center;
-  color: rgba(247,238,220,.70);
-  font-size: 14px;
-}
-
-/* Location page widgets (weather + countdown) */
-.location-page .corner-widgets{
-  position: fixed;
-  top: 84px;
-  right: 16px;
-  width: min(300px, calc(100vw - 32px));
-  display: grid;
-  gap: 18px;
-  z-index: 20;
-}
-
-.location-page .mini-card{
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(247,238,220,.14);
-  box-shadow: 0 18px 50px rgba(0,0,0,.25);
-  border-radius: 14px;
-  padding: 12px 14px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.location-page .mini-card-title{
-  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  font-size: 11px;
-  color: rgba(247,238,220,.78);
-  margin: 0 0 8px;
-}
-
-.location-page .mini-card-body{
-  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: 14px;
-  color: rgba(247,238,220,.92);
-  line-height: 1.35;
-}
-
-.location-page .mini-card-sub{
-  margin-top: 6px;
-  font-size: 11px;
-  color: rgba(247,238,220,.60);
-  letter-spacing: .06em;
-}
-
-/* On phones, don’t cover content, place widgets inside page flow */
-@media (max-width: 820px){
-  .location-page .corner-widgets{
-    position: static;
-    width: 100%;
-    margin: 12px 0 18px;
-  }
+  display:block;
 }
