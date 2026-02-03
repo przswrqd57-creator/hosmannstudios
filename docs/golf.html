@@ -1,39 +1,245 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hosmann Studios</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=13">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hosmann Studios</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=15">
+
+  <style>
+    /* Golf-only layout helpers, keeps styles.css untouched */
+
+    .golf-top {
+      margin-top: 10px;
+    }
+
+    .captains-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .captain-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(247,238,220,.10);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .captain-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(247,238,220,.12);
+      background: rgba(0,0,0,.18);
+      display: block;
+    }
+
+    .captain-name {
+      margin: 12px 0 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 22px;
+      color: rgba(247,238,220,.94);
+    }
+
+    .team-list {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(247,238,220,.84);
+      line-height: 1.45;
+    }
+
+    .rules-card h2 {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      color: var(--gold);
+      font-size: clamp(22px, 3vw, 30px);
+    }
+
+    .rules-block {
+      display: grid;
+      gap: 14px;
+    }
+
+    .rules-block h3 {
+      margin: 0 0 6px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-weight: 600;
+      color: rgba(247,238,220,.94);
+      font-size: 22px;
+    }
+
+    .rules-block ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(247,238,220,.84);
+      line-height: 1.55;
+    }
+
+    .rules-block li {
+      margin: 6px 0;
+    }
+
+    .rules-note {
+      color: rgba(247,238,220,.72);
+    }
+
+    .golf-photo-bottom {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .golf-photo-bottom img {
+      width: 100%;
+      max-width: 980px;
+      height: auto;
+      border-radius: 18px;
+      border: 1px solid rgba(247,238,220,.10);
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      display: block;
+    }
+
+    @media (max-width: 820px) {
+      .captains-wrap {
+        grid-template-columns: 1fr;
+      }
+      .captain-name {
+        font-size: 21px;
+      }
+    }
+  </style>
 </head>
+
 <body class="page">
   <header class="topbar">
     <a class="brand" href="index.html">Hosmann Studios</a>
-    <div class="topnav"><nav class="nav" aria-label="Primary">
-  <a class="btn" href="location.html">Location</a>
-  <a class="btn" href="itinerary.html">Itinerary</a>
-  <a class="btn" href="golf.html">Golf</a>
-  <a class="btn" href="dynasty.html">Dynasty</a>
-  <a class="btn" href="wall.html">The Wall</a>
-</nav>
-</div>
+
+    <div class="topnav">
+      <nav class="nav" aria-label="Primary">
+        <a class="btn" href="location.html">Location</a>
+        <a class="btn" href="itinerary.html">Itinerary</a>
+        <a class="btn" href="golf.html">Golf</a>
+        <a class="btn" href="dynasty.html">Dynasty</a>
+        <a class="btn" href="wall.html">The Wall</a>
+      </nav>
+    </div>
   </header>
 
   <main class="content">
     <h1 class="page-title">Golf</h1>
-    <div class="card">
-  <h2>Golf</h2>
-  <p class="muted">Tee times, pairings, and match details will live here</p>
-  <ul>
-    <li>Friday tee times: 9:00am–9:36am</li>
-    <li>Saturday tee times: 9:36am–10:12am</li>
-  </ul>
-</div>
 
+    <!-- Top section reserved for captains + teams -->
+    <section class="golf-top">
+      <div class="captains-wrap">
+        <!-- Captain left -->
+        <div class="captain-card">
+          <!-- Replace src later with your captain photo -->
+          <img class="captain-photo" src="captain-left.jpg" alt="Captain photo left">
+
+          <div class="captain-name">Captain (Left) Name</div>
+
+          <!-- Replace list items later with the team -->
+          <ul class="team-list">
+            <li>Player 1</li>
+            <li>Player 2</li>
+            <li>Player 3</li>
+            <li>Player 4</li>
+            <li>Player 5</li>
+            <li>Player 6</li>
+            <li>Player 7</li>
+          </ul>
+        </div>
+
+        <!-- Captain right -->
+        <div class="captain-card">
+          <!-- Replace src later with your captain photo -->
+          <img class="captain-photo" src="captain-right.jpg" alt="Captain photo right">
+
+          <div class="captain-name">Captain (Right) Name</div>
+
+          <!-- Replace list items later with the team -->
+          <ul class="team-list">
+            <li>Player 1</li>
+            <li>Player 2</li>
+            <li>Player 3</li>
+            <li>Player 4</li>
+            <li>Player 5</li>
+            <li>Player 6</li>
+            <li>Player 7</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Middle rules / games section -->
+    <section class="card rules-card">
+      <h2>Games and rules</h2>
+
+      <div class="rules-block">
+        <div>
+          <h3>Friday round</h3>
+          <ul>
+            <li>2-man best ball match play, each player plays their own ball</li>
+            <li>Lower score from each team on each hole wins the hole</li>
+            <li>Team that wins the most holes wins the match</li>
+            <li>One head-to-head match needs to be strategically paired, match play</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Saturday round</h3>
+          <ul>
+            <li>Singles head-to-head match play, think Ryder Cup final day</li>
+            <li>Team captains announce pairings one at a time and rotate turns announcing players</li>
+            <li>Example flow: Captain A announces Player 1, Captain B matches, then Captain B announces Player 2, Captain A matches, repeat</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Lies</h3>
+          <ul>
+            <li>Any ball not on the green may be rolled slightly with the club face only, to improve your lie within 6 inches of the initial position</li>
+            <li>A ball cannot be rolled from rough to fairway, out of a bunker onto the green, or out of a native area</li>
+            <li>A ball cannot be rolled closer to the hole</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Lost ball and OB</h3>
+          <ul>
+            <li>A ball hit out of bounds, into a native area, or tree line is a lost ball if not found within a few minutes</li>
+            <li>1-stroke penalty applies and the player drops and plays from the point of entry</li>
+            <li>If the player chooses to re-tee after OB or lost ball, full stroke-and-distance applies, hitting 3 off the tee</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Gimmies</h3>
+          <ul>
+            <li>Gimmies are permitted at the discretion of each player</li>
+          </ul>
+          <div class="rules-note" style="margin-top:10px">
+            If you want, I can format this into tighter, more “rules card” style later without changing your overall aesthetic
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom photo centered -->
+    <div class="golf-photo-bottom">
+      <img src="golf.jpeg" alt="Firekeeper Golf Course entrance sign">
+    </div>
   </main>
 </body>
 </html>
