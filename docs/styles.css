@@ -226,18 +226,66 @@ a:hover{ opacity:.92; }
   .event{ font-size: 19px; }
 }
 
-/* DYNASTY – PAST CHAMPIONS */
-
-.dynasty{
-  max-width: 980px;
-  margin: 0 auto;
-}
+/* DYNASTY – CENTERED LIST (MATCHED FONTS) */
 
 .dynasty .page-title{
   text-align: center;
-  margin: 8px 0 26px;
+  margin: 14px 0 clamp(18px, 4vw, 28px);
 }
 
+.dynasty-panel{
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 3.2vw, 34px);
+  border-radius: 22px;
+  background: rgba(0,0,0,.10);
+  border: 1px solid rgba(247,238,220,.12);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.dynasty-list{
+  display: grid;
+  gap: clamp(16px, 2.6vw, 22px);
+}
+
+.dynasty-item{
+  text-align: center;
+  display: grid;
+  gap: 6px;
+}
+
+.dynasty-person,
+.dynasty-years{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(22px, 3.8vw, 30px);
+  line-height: 1.05;
+}
+
+.dynasty-person{
+  color: rgba(247,238,220,.96);
+}
+
+.dynasty-years{
+  color: rgba(216,185,130,.96);
+  letter-spacing: .10em;
+  font-weight: 400;
+}
+
+.dynasty-divider{
+  height: 1px;
+  width: min(520px, 100%);
+  margin: 0 auto;
+  background: rgba(247,238,220,.12);
+}
+
+.dynasty-footnote{
+  margin: 16px 0 0;
+  text-align: center;
+  color: rgba(247,238,220,.70);
+  font-size: 14px;
+}
 /* Centered two-column list that feels like itinerary typography */
 .dynasty-table{
   width: min(820px, 100%);
