@@ -1,77 +1,333 @@
-/* ===== Global reset ===== */
-* {
-  box-sizing: border-box;
+:root{
+  --bg:#0F3B2B;
+  --cream: rgba(247, 238, 220, .96);
+  --creamSoft: rgba(247, 238, 220, .78);
+  --line: rgba(247, 238, 220, .22);
+  --gold: rgba(216, 185, 130, .96);
 }
 
-body {
+*{ box-sizing:border-box; }
+html, body { min-height: 100%; }
+html { background: var(--bg); }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+a{ color:inherit; text-decoration:none; }
+a:hover{ opacity:.92; }
+
+/* HOME HERO */
+.hero{
+  position: relative;
+  min-height: 100svh;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding: clamp(16px, 3.2vw, 34px);
+  padding-top: calc(clamp(16px, 3.2vw, 34px) + env(safe-area-inset-top));
+  padding-bottom: calc(clamp(16px, 3.2vw, 34px) + env(safe-area-inset-bottom));
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  transform: translateZ(0);
+}
+
+.hero-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+.hero-scrim{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.25) 0%,
+    rgba(0,0,0,.18) 35%,
+    rgba(6,22,15,.80) 100%
+  );
+}
+
+.hero-top, .hero-center, .hero-bottom{ position:relative; z-index:1; }
+
+.kicker{
+  margin:0;
+  text-align:center;
+  text-transform: uppercase;
+  letter-spacing: .34em;
+  font-weight: 200;
+  color: var(--creamSoft);
+  font-size: clamp(12px, 2.3vw, 15px);
+}
+
+.hero-center{ text-align:center; padding: 10px 0; }
+
+.title{
+  margin: 10px 0 8px;
+  font-family: "IM Fell English SC", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: .98;
+  color: var(--cream);
+  font-size: clamp(40px, 7.2vw, 84px);
+  text-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.subtitle{
   margin: 0;
-  font-family: Montserrat, sans-serif;
-  background: radial-gradient(circle at top, #204235, #0f241b);
-  color: #f3f1ea;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--creamSoft);
+  font-size: clamp(18px, 3.2vw, 28px);
 }
 
-/* ===== Top navigation ===== */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 28px;
+/* HERO NAV */
+.nav{
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
-
-.brand {
-  font-size: 14px;
-  letter-spacing: 0.3em;
-  opacity: 0.8;
-}
-
-.nav a {
-  margin-left: 12px;
-  padding: 8px 14px;
-  border: 1px solid rgba(255,255,255,0.25);
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 18px;
   border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--cream);
+  font-weight: 300;
+  letter-spacing: .02em;
+  min-width: 110px;
+  transition: background .15s ease, border-color .15s ease, transform .1s ease;
+}
+.btn:hover{
+  background: rgba(0,0,0,.26);
+  border-color: rgba(247,238,220,.30);
+}
+.btn:active{
+  background: rgba(6,22,15,.88);
+  transform: translateY(1px);
+  border-color: rgba(247,238,220,.34);
+}
+
+@media (max-width: 480px){
+  .hero{ padding-left: 16px; padding-right: 16px; }
+  .kicker{ letter-spacing: .26em; }
+  .nav{ gap: 10px; }
+  .btn{ min-width: 46%; padding: 12px 14px; }
+}
+@media (max-height: 740px){
+  .title{ font-size: clamp(34px, 6.6vw, 68px); }
+}
+
+/* TOPBAR + CONTENT PAGES */
+.topbar{
+  position: sticky;
+  top:0;
+  z-index:10;
+  background: rgba(6,22,15,.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(247,238,220,.10);
+  padding: 14px 18px;
+}
+.brand{
+  font-weight: 200;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--creamSoft);
+  font-size: 12px;
   text-decoration: none;
-  color: #f3f1ea;
-  font-size: 14px;
 }
 
-.nav a.active {
-  background: rgba(255,255,255,0.1);
+.brand:hover{
+  opacity: .9;
 }
 
-/* ===== Page structure ===== */
-.content {
-  max-width: 900px;
-  margin: 60px auto 120px;
-  padding: 0 24px;
+.topnav .nav{ justify-content:flex-start; }
+.topnav .btn{ min-width: auto; padding: 10px 14px; }
+
+.content{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 26px 18px 60px;
+}
+.page-title{
+  margin: 10px 0 18px;
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4.4vw, 54px);
 }
 
-.page-title {
-  font-family: "IM Fell English SC", serif;
-  font-size: 48px;
-  margin-bottom: 40px;
+.card{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(247,238,220,.10);
+  border-radius: 18px;
+  padding: 18px;
+}
+.muted{ color: rgba(247,238,220,.72); }
+
+.grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 720px){
+  .grid-2{ grid-template-columns: 1fr; }
 }
 
-/* ===== Itinerary ===== */
-.itinerary-page .day-block {
-  margin-bottom: 48px;
+/* ITINERARY */
+.itinerary{ display:flex; flex-direction:column; gap: 18px; }
+.day{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+  border: 1px solid rgba(247,238,220,.10);
+  border-radius: 18px;
+  padding: 18px;
 }
-
-.itinerary-page h2 {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
-.itinerary-page ul {
-  list-style: none;
-  padding: 0;
-}
-
-.itinerary-page li {
-  margin-bottom: 6px;
-  font-size: 16px;
-}
-
-/* ===== Utility ===== */
-strong {
+.day h2{
+  margin: 0 0 14px;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
+  color: var(--gold);
+  font-size: clamp(22px, 3vw, 30px);
+}
+.schedule{ display:flex; flex-direction:column; gap: 10px; }
+.row{
+  display:grid;
+  grid-template-columns: 170px 1fr;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(247,238,220,.08);
+}
+.time{ font-weight: 300; color: rgba(247,238,220,.80); }
+.event{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  color: rgba(247,238,220,.94);
+}
+@media (max-width: 560px){
+  .row{ grid-template-columns: 1fr; }
+  .event{ font-size: 19px; }
+}
+
+/* DYNASTY – PAST CHAMPIONS */
+
+.dynasty{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.dynasty .page-title{
+  text-align: center;
+  margin: 8px 0 26px;
+}
+
+/* Centered two-column list that feels like itinerary typography */
+.dynasty-table{
+  width: min(820px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(12px, 2.2vw, 18px);
+  padding: clamp(10px, 2vw, 18px);
+  border-radius: 18px;
+  background: rgba(0,0,0,.10);
+  border: 1px solid rgba(247,238,220,.12);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.dynasty-row{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  column-gap: 72px;
+  align-items: center;
+}
+
+.dynasty-year{
+  text-align: right;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(247,238,220,.85);
+  letter-spacing: .12em;
+  font-size: clamp(22px, 4.2vw, 30px);
+  line-height: 1.05;
+}
+
+.dynasty-name{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255,255,255,.96);
+  font-size: clamp(22px, 4.2vw, 30px);
+  line-height: 1.05;
+}
+
+.dynasty-note{
+  opacity: .85;
+}
+
+.dynasty-footnote{
+  margin: 18px auto 0;
+  width: min(820px, 100%);
+  text-align: center;
+  font-size: 14px;
+  color: rgba(247,238,220,.65);
+}
+
+/* WALL */
+.wall{ display:flex; flex-direction:column; gap: 22px; }
+.champ{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(247,238,220,.10);
+  border-radius: 18px;
+  padding: 16px;
+}
+.champ h2{
+  margin: 0 0 12px;
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-weight: 400;
+  color: var(--gold);
+}
+.champ-img{
+  width:100%;
+  height:auto;
+  border-radius: 14px;
+  border: 1px solid rgba(247,238,220,.12);
+}
+
+.location-image {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.location-image img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* iPhone portrait: keep cover, adjust the crop window */
+@media (max-width: 520px) {
+  .hero-img{
+    object-fit: cover;
+    object-position: 70% 55%;
+  }
 }
