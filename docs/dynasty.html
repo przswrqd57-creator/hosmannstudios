@@ -8,10 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+
   <link rel="stylesheet" href="styles.css?v=15">
 </head>
 
-<body class="page">
+<body class="page dynasty">
   <header class="topbar">
     <a class="brand" href="index.html">Hosmann Studios</a>
 
@@ -26,35 +27,47 @@
     </div>
   </header>
 
-  <main class="content dynasty">
+  <main class="content">
     <h1 class="page-title">League Dynasties</h1>
 
-    <div class="dynasty-table" role="table" aria-label="Dynasty Champions">
-      <div class="dynasty-row" role="row">
-        <div class="dynasty-name" role="cell">Mike Miller</div>
-        <div class="dynasty-years" role="cell">2017, 2019</div>
-      </div>
+    <section class="dynasty-panel" aria-label="League Dynasties">
+      <div class="dynasty-list">
 
-      <div class="dynasty-row" role="row">
-        <div class="dynasty-name" role="cell">Chris Hadden</div>
-        <div class="dynasty-years" role="cell">2015, 2021*</div>
-      </div>
+        <div class="dynasty-item">
+          <div class="dynasty-person">Mike Miller</div>
+          <div class="dynasty-years">2017, 2019</div>
+        </div>
 
-      <div class="dynasty-row" role="row">
-        <div class="dynasty-name" role="cell">Jon Urbom</div>
-        <div class="dynasty-years" role="cell">2012, 2022</div>
-      </div>
+        <div class="dynasty-divider" aria-hidden="true"></div>
 
-      <div class="dynasty-row" role="row">
-        <div class="dynasty-name" role="cell">Luke Meier</div>
-        <div class="dynasty-years" role="cell">2013, 2023</div>
-      </div>
+        <div class="dynasty-item">
+          <div class="dynasty-person">Chris Hadden</div>
+          <div class="dynasty-years">2015, 2021*</div>
+        </div>
 
-      <div class="dynasty-row" role="row">
-        <div class="dynasty-name" role="cell">Adam Hosmann</div>
-        <div class="dynasty-years" role="cell">2018, 2024, 2025</div>
+        <div class="dynasty-divider" aria-hidden="true"></div>
+
+        <div class="dynasty-item">
+          <div class="dynasty-person">Jon Urbom</div>
+          <div class="dynasty-years">2012, 2022</div>
+        </div>
+
+        <div class="dynasty-divider" aria-hidden="true"></div>
+
+        <div class="dynasty-item">
+          <div class="dynasty-person">Luke Meier</div>
+          <div class="dynasty-years">2013, 2023</div>
+        </div>
+
+        <div class="dynasty-divider" aria-hidden="true"></div>
+
+        <div class="dynasty-item">
+          <div class="dynasty-person">Adam Hosmann</div>
+          <div class="dynasty-years">2018, 2024, 2025</div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
     <p class="dynasty-footnote">* 10 point homefield buffer title</p>
   </main>
