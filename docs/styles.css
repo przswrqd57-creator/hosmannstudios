@@ -461,3 +461,15 @@ a:hover{ opacity:.92; }
   border: 0 !important;
   display: block !important;
 }
+
+/* LOCATION – realtime weather text */
+.location-page .weather-live-main{
+  font-weight: 300;
+  color: rgba(247,238,220,.94);
+  font-size: 20px;
+  line-height: 1.25;
+}
+.location-page .weather-live-sub{
+  margin-top: 8px;
+  font-weight: 300;
+}
