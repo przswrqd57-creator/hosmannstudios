@@ -398,3 +398,42 @@ a:hover{ opacity:.92; }
 .location-grid .weather-block iframe{
   width: 100% !important;
 }
+
+/* LOCATION – unify headings and make weather widget visible */
+.location-page .location-grid h2,
+.location-page .location-grid h3{
+  margin: 0 0 10px;
+  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 600;
+  color: var(--cream);
+  font-size: clamp(26px, 3.2vw, 34px);
+  letter-spacing: 0;
+}
+
+/* keep the address line spacing looking like before */
+.location-page .loc-head .muted{
+  margin: 0;
+}
+
+/* weather block spacing */
+.location-page .weather-block{
+  min-width: 0;
+}
+
+/* weatherwidget.io often renders but iframe height collapses, force a height */
+.location-page .weather-block .weatherwidget-io{
+  display: block;
+  width: 100%;
+  min-height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.location-page .weather-block iframe{
+  width: 100% !important;
+  height: 140px !important;
+  min-height: 140px !important;
+  border: 0 !important;
+  display: block !important;
+}
