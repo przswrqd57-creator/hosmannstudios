@@ -379,3 +379,22 @@ a:hover{ opacity:.92; }
     object-position: 70% 55%;
   }
 }
+
+.location-grid .weather-block h2{
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3.2vw, 34px);
+  font-weight: 600;
+}
+
+/* remove widget’s default white box look */
+.location-grid .weather-block .weatherwidget-io{
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* make sure it doesn’t add weird spacing */
+.location-grid .weather-block iframe{
+  width: 100% !important;
+}
