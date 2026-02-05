@@ -394,11 +394,6 @@ a:hover{ opacity:.92; }
   background: transparent;
 }
 
-/* make sure it doesn’t add weird spacing */
-.location-grid .weather-block iframe{
-  width: 100% !important;
-}
-
 /* LOCATION – unify headings and make weather widget visible */
 .location-page .location-grid h2,
 .location-page .location-grid h3{
@@ -434,6 +429,35 @@ a:hover{ opacity:.92; }
   width: 100% !important;
   height: 140px !important;
   min-height: 140px !important;
+  border: 0 !important;
+  display: block !important;
+}
+
+/* LOCATION – make Firekeeper Resort, Weather, Arrival, Notes identical */
+.location-page .location-grid h2,
+.location-page .location-grid h3{
+  margin: 0 0 10px;
+  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 600;
+  color: var(--cream);
+  font-size: clamp(26px, 3.2vw, 34px);
+  letter-spacing: 0;
+}
+
+/* LOCATION – weatherwidget.io iframe height fix */
+.location-page .weather-block .weatherwidget-io{
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.location-page .weather-block iframe{
+  width: 100% !important;
+  height: 150px !important;
+  min-height: 150px !important;
   border: 0 !important;
   display: block !important;
 }
