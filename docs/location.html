@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap">
-
   <link rel="stylesheet" href="styles.css?v=16">
 </head>
 
@@ -31,70 +30,72 @@
     <h1 class="page-title">Location</h1>
 
     <div class="card">
-   <div class="loc-head">
-  <h2>Firekeeper Resort</h2>
-  <p class="muted">12305 150th Rd, Mayetta, KS 66509</p>
-</div>
+      <div class="grid-2 location-grid">
+        <!-- Row 1, left -->
+        <div class="loc-head">
+          <h2>Firekeeper Resort</h2>
+          <p class="muted">12305 150th Rd, Mayetta, KS 66509</p>
+        </div>
 
-<div class="grid-2 location-grid">
-  <div>
-    <h3>Arrival</h3>
-    <ul>
-      <li>Arrive: 6:30am (Friday)</li>
-      <li>Check-in: 2:00pm</li>
-    </ul>
-  </div>
+        <!-- Row 1, right -->
+        <div class="weather-block">
+          <h2>Weather</h2>
 
-<div class="weather-block">
-  <h2>Weather</h2>
+          <a class="weatherwidget-io"
+             href="https://forecast7.com/en/39d34n95d85/mayetta/?unit=us"
+             data-label_1="MAYETTA, KS"
+             data-label_2="WEATHER"
+             data-font="Montserrat"
+             data-icons="Climacons Animated"
+             data-days="3"
+             data-theme="pure"
+             data-basecolor="rgba(0,0,0,0)"
+             data-textcolor="rgba(247,238,220,.96)"
+             data-highcolor="rgba(216,185,130,.96)"
+             data-lowcolor="rgba(247,238,220,.72)"
+             data-cloudcolor="rgba(247,238,220,.20)"
+             data-cloudfill="rgba(0,0,0,0)"
+             data-raincolor="rgba(247,238,220,.55)"
+             data-snowcolor="rgba(247,238,220,.75)">
+             Loading weather
+          </a>
+        </div>
 
-  <a class="weatherwidget-io"
-     href="https://forecast7.com/en/39d34n95d85/mayetta/?unit=us"
-     data-label_1="MAYETTA, KS"
-     data-label_2="WEATHER"
-     data-font="Montserrat"
-     data-icons="Climacons Animated"
-     data-days="3"
-     data-theme="pure"
-     data-basecolor="rgba(0,0,0,0)"
-     data-textcolor="rgba(247,238,220,.96)"
-     data-highcolor="rgba(216,185,130,.96)"
-     data-lowcolor="rgba(247,238,220,.72)"
-     data-cloudcolor="rgba(247,238,220,.20)"
-     data-cloudfill="rgba(0,0,0,0)"
-     data-raincolor="rgba(247,238,220,.55)"
-     data-snowcolor="rgba(247,238,220,.75)">
-     Loading weather
-  </a>
-</div>
-    
-  <div>
-    <h3>Notes</h3>
-    <ul>
-      <li>Parking on-site</li>
-      <li>Pool and Casino on property</li>
-      <li>NO Zip-line</li>
-    </ul>
-  </div>
-</div>
-      
-    <div class="location-image">
-      <img src="location.jpeg" alt="FireKeeper Golf Course">
+        <!-- Row 2, left -->
+        <div>
+          <h3>Arrival</h3>
+          <ul>
+            <li>Arrive: 6:30am (Friday)</li>
+            <li>Check-in: 2:00pm</li>
+          </ul>
+        </div>
+
+        <!-- Row 2, right -->
+        <div>
+          <h3>Notes</h3>
+          <ul>
+            <li>Parking on-site</li>
+            <li>Pool and Casino on property</li>
+            <li>NO Zip-line</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="location-image">
+        <img src="location.jpeg" alt="FireKeeper Golf Course">
+      </div>
     </div>
   </main>
 
   <script>
-  !function(d,s,id){
-    var js,fjs=d.getElementsByTagName(s)[0];
-    if(!d.getElementById(id)){
-      js=d.createElement(s); js.id=id;
-      js.src='https://weatherwidget.io/js/widget.min.js';
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,'script','weatherwidget-io-js');
-</script>
-  
+    !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+        js=d.createElement(s); js.id=id;
+        js.src='https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document,'script','weatherwidget-io-js');
+  </script>
 </body>
 </html>
-
-
