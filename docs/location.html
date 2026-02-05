@@ -38,28 +38,14 @@
         </div>
 
         <!-- Row 1, right -->
-        <div class="weather-block">
-          <h2>Weather</h2>
+<div class="weather-block">
+  <h2>Weather</h2>
 
-          <a class="weatherwidget-io"
-             href="https://forecast7.com/en/39d34n95d85/mayetta/?unit=us"
-             data-label_1="MAYETTA, KS"
-             data-label_2="WEATHER"
-             data-font="Montserrat"
-             data-icons="Climacons Animated"
-             data-days="3"
-             data-theme="pure"
-             data-basecolor="rgba(0,0,0,0)"
-             data-textcolor="rgba(247,238,220,.96)"
-             data-highcolor="rgba(216,185,130,.96)"
-             data-lowcolor="rgba(247,238,220,.72)"
-             data-cloudcolor="rgba(247,238,220,.20)"
-             data-cloudfill="rgba(0,0,0,0)"
-             data-raincolor="rgba(247,238,220,.55)"
-             data-snowcolor="rgba(247,238,220,.75)">
-             Loading weather
-          </a>
-        </div>
+  <div class="weather-live">
+    <div class="weather-live-main" id="wx-main">Loading weather</div>
+    <div class="weather-live-sub muted" id="wx-sub"></div>
+  </div>
+</div>
 
         <!-- Row 2, left -->
         <div>
@@ -86,16 +72,3 @@
       </div>
     </div>
   </main>
-
-  <script>
-    !function(d,s,id){
-      var js,fjs=d.getElementsByTagName(s)[0];
-      if(!d.getElementById(id)){
-        js=d.createElement(s); js.id=id;
-        js.src='https://weatherwidget.io/js/widget.min.js';
-        fjs.parentNode.insertBefore(js,fjs);
-      }
-    }(document,'script','weatherwidget-io-js');
-  </script>
-</body>
-</html>
