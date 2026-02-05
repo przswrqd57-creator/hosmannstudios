@@ -70,6 +70,3 @@
       subEl.textContent = "Refresh in a minute"
     }
   }
-
-  loadWeather()
-})()/ app.js intentionally blank
