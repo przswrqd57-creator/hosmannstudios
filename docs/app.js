@@ -6,7 +6,6 @@
   const subEl = document.getElementById("wx-sub")
   if (!mainEl || !subEl) return
 
-  // Firekeeper / Mayetta, KS 66509
   const lat = 39.34
   const lon = -95.85
 
@@ -70,3 +69,6 @@
       subEl.textContent = "Refresh in a minute"
     }
   }
+
+  loadWeather()
+})()
