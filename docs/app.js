@@ -1,6 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
   const el = document.getElementById("countdown")
-  if (el) el.textContent = "JS OK"
+  if (!el) return
+
+  const target = new Date("2026-07-31T06:30:00-05:00") // 6:30am CDT
+
+  const pad = (n) => String(n).padStart(2, "0")
+
+  function render() {
+    const now = new Date()
+    let diff = target.getTime() - now.getTime()
+
+    if (diff <= 0) {
+      el.textContent = "In progress"
+      return
+    }
+
+    diff = Math.floor(diff / 1000)
+    const days = Math.floor(diff / 86400)
+    const hours = Math.floor((diff % 86400) / 3600)
+    const mins = Math.floor((diff % 3600) / 60)
+    const secs = diff % 60
+
+    el.textContent = `${days}d ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`
+  }
+
+  render()
+  setInterval(render, 1000)
 })
   
 (function () {
