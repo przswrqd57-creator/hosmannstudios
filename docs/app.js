@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("countdown")
+  if (el) el.textContent = "JS OK"
+})
+  
 (function () {
   const isLocationPage = document.body && document.body.classList.contains("location-page")
   if (!isLocationPage) return
