@@ -569,3 +569,56 @@ a:hover{ opacity:.92; }
     width: 100%;
   }
 }
+
+/* ITINERARY – header row with discreet countdown */
+.itinerary-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 16px;
+}
+
+.itinerary-page .page-title{
+  margin: 10px 0 18px;
+}
+
+.countdown-card{
+  border: 1px solid rgba(247, 238, 220, .22);
+  background: rgba(0,0,0,.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+  min-width: 190px;
+  text-align: right;
+}
+
+.countdown-kicker{
+  font-size: 12px;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  color: rgba(247, 238, 220, .78);
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.countdown-time{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: rgba(247, 238, 220, .96);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px){
+  .itinerary-head{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .countdown-card{
+    width: 100%;
+    text-align: left;
+  }
+  .countdown-time{
+    white-space: normal;
+  }
+}
